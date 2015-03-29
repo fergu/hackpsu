@@ -1,9 +1,25 @@
 var RecipeResponse;
+var RecipeTitle;
+var RecipeSteps;
+
+loadRecipeFile();
 
 $("a#recipelink").click(function() {
-	var val = $(this).attr("mval");
-	document.getElementById("Recipename").value = "test";
-	document.getElementById("time").value = "time";
+	var rname = $(this).attr("mval");
+	loadRecipeAttributes(rname);
+	document.getElementById("Recipename").innerHTML = RecipeTitle;
+
+	var stepstring = "<ul>";
+	for (var i=0;i<RecipeSteps.length;i++) {
+		stepstring.concat("<li>");
+		thisstep = RecipeSteps[i].getElementsByTagName("text");
+		console.log(thisstep);
+		stepstring.concat(thisstep);
+		stepstring.concat("</li>");
+	}
+	stepstring.concat("</ul>");
+	document.getElementById("time").innerHTML = "Over 9000";
+	document.getElementById("steps").innerHTML = stepstring;
 	document.getElementById("results").scrollIntoView();
 	return false;
 })
@@ -22,7 +38,7 @@ function loadRecipeFile() {
 	{
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			RecipeResponse = xmlhttp.responseXML;
+			return RecipeResponse = xmlhttp.responseXML;
 		}
 	}	
 
@@ -30,13 +46,17 @@ function loadRecipeFile() {
 	xmlhttp.send();
 }
 
-function getRecipeNamed(rname) {
-	var tag = RecipeResponse.getElementsByTagName("Recipe")[1];
-	document.getElementById("resultz").value = tag.getAttribute("title");
-}
+function loadRecipeAttributes(rname) {
+	var recipes = RecipeResponse.getElementsByTagName("Recipe");
+	var therecipe;
 
-function loadRecipeFromLink(link) {
-	console.log(link);
-	var title = link.text();
-	console.log(title);
+	for (var i=0;i<recipes.length;i++) {
+		var thisName = recipes[i].getAttribute("title");
+		if (thisName == rname) {
+			therecipe = recipes[i];
+			break;
+		}
+	}
+	RecipeTitle = therecipe.getAttribute("title");
+	RecipeSteps = therecipe.getElementsByTagName("Steps");
 }
