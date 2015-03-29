@@ -1,10 +1,12 @@
 var RecipeResponse;
+var CurrentRecipe;
 
 loadRecipeFile();
 
 $("a#recipelink").click(function() {
 	var rname = $(this).attr("mval");
 	attrs = loadRecipeAttributes(rname);
+	CurrentRecipe = attrs;
 	document.getElementById("Recipename").innerHTML = attrs.title;
 	steps = attrs.steps;
 	var stepstring = "<ul>";
@@ -15,6 +17,8 @@ $("a#recipelink").click(function() {
 	document.getElementById("time").innerHTML = "Estimated Time: Over 9000";
 	document.getElementById("steps").innerHTML = stepstring;
 	document.getElementById("results").scrollIntoView();
+
+	readyToRead(steps);
 	return false;
 })
 
@@ -54,6 +58,5 @@ function loadRecipeAttributes(rname) {
 	var toreturn = {};
 	toreturn["title"] = therecipe.getAttribute("title");
 	toreturn["steps"] = therecipe.getElementsByTagName("step");
-
 	return toreturn;
 }

@@ -1,12 +1,20 @@
-<html>
+<!doctype html>
+<html> 
+<head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="Jscripts/recognizer.js"></script>
 <script src="Jscripts/reader.js"></script>
+
+</head>
 <body>
-<h1> This is a webpage! Woo! </h1>
+<h1> This is a webpage! Woo! </h1> <br>
+<a href="#" id="recipelink" mval="Ramen">Ramen</a> <br>
+<a href="#" id="nlink" mval="other">other</a> <br>
+<p>First Paragraph</p>
 <br>
-<input id="txtid"> <button onclick="startRecognizer(event)">Click me</button>
-<button onclick="stopRecognizer(event)">Click me to stop</button>
-<br>
-<input id="txt2id"> <button onclick="speakText()">Button!</button>
+<input id="resultz"/>
+<input id="status"/>
+
+<script src="Jscripts/recipeparser.js"></script>
 </body>
 </html>

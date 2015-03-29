@@ -1,63 +1,19 @@
 <Recipes>
 	<Recipe title="Hot Dogs">
 		<Ingredient name="Hotdog" quantity="2"/>
-		<step number="1" posttime="0">
-			<text>
-				Fill a pot with water and place the pot on the stove under high heat
-			</text>
-		</step>
-		<step number="2" posttime="0">
-			<text>
-				Remove your hot dogs from the packaging.
-			</text>
-		</step>
-		<step number="3" posttime="0">
-			<text>
-				Place the hot dogs into the water.
-			</text>
-		</step>
-		<step number="4" posttime="0">
-			<text>
-				Wait for the water to come to a boil.
-			</text>
-		</step>
-		<step number="5" posttime="60">
-			<text>
-				Once the water is boiling, wait 1 minute for the hot dogs to cook.
-			</text>
-		</step>
-		<step number="6" posttime="0">
-			<text>
-				Carefully remove the hot dogs from the boiling water and place onto bread.
-			</text>
-		</step>
+		<step number="1" posttime="0">Fill a pot with water and place the pot on the stove under high heat</step>
+		<step number="2" posttime="0">Remove your hot dogs from the packaging.</step>
+		<step number="3" posttime="0">Place the hot dogs into the water.</step>
+		<step number="4" posttime="0">Wait for the water to come to a boil.</step>
+		<step number="5" posttime="60">Once the water is boiling, wait 1 minute for the hot dogs to cook.</step>
+		<step number="6" posttime="0">Carefully remove the hot dogs from the boiling water and place onto bread.</step>
 	</Recipe>
 	<Recipe title="Ramen">
 		<Ingredient name="Ramen Packet" quantity="1"/>
-		<step number="1" posttime="0">
-			<text>
-				Remove the ramen from the packaging. There will be a pack of noodles and a packet of seasoning.
-			</text>
-		</step>
-		<step number="2" posttime="0">
-			<text>
-				Put water into a pot and place the pot on the stove on high heat.
-			</text>
-		</step>
-		<step number="3" posttime="300">
-			<text>
-				Place the noodles into the water. Wait for the water to come to a boil, and continue cooking for 5 minutes.
-			</text>
-		</step>
-		<step number="4" posttime="0">
-			<text>
-				After the noodles have cooked, add the seasoning packet to the water.
-			</text>
-		</step>	
-		<step number="5" posttime="0">
-			<text>
-				Strain the water and noodles through a collander. Place the noodles into a bowl and enjoy.
-			</text>
-		</step>	
+		<step number="1" posttime="0">Remove the ramen from the packaging. There will be a pack of noodles and a packet of seasoning.</step>
+		<step number="2" posttime="0">Put water into a pot and place the pot on the stove on high heat.</step>
+		<step number="3" posttime="300">Place the noodles into the water. Wait for the water to come to a boil, and continue cooking for 5 minutes.</step>
+		<step number="4" posttime="0">After the noodles have cooked, add the seasoning packet to the water.</step>	
+		<step number="5" posttime="0">Strain the water and noodles through a collander. Place the noodles into a bowl and enjoy.</step>	
 	</Recipe>
 </Recipes>
