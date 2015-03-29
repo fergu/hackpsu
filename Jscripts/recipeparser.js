@@ -1,24 +1,18 @@
 var RecipeResponse;
-var RecipeTitle;
-var RecipeSteps;
 
 loadRecipeFile();
 
 $("a#recipelink").click(function() {
 	var rname = $(this).attr("mval");
-	loadRecipeAttributes(rname);
-	document.getElementById("Recipename").innerHTML = RecipeTitle;
-
+	attrs = loadRecipeAttributes(rname);
+	document.getElementById("Recipename").innerHTML = attrs.title;
+	steps = attrs.steps;
 	var stepstring = "<ul>";
-	for (var i=0;i<RecipeSteps.length;i++) {
-		stepstring.concat("<li>");
-		thisstep = RecipeSteps[i].getElementsByTagName("text");
-		console.log(thisstep);
-		stepstring.concat(thisstep);
-		stepstring.concat("</li>");
+	for (var i=0;i<steps.length;i++) {
+		stepstring = stepstring.concat("<li>Step ", i+1, ": ", steps[i].childNodes[0].nodeValue, "</li>");
 	}
-	stepstring.concat("</ul>");
-	document.getElementById("time").innerHTML = "Over 9000";
+	stepstring = stepstring.concat("</ul>");
+	document.getElementById("time").innerHTML = "Estimated Time: Over 9000";
 	document.getElementById("steps").innerHTML = stepstring;
 	document.getElementById("results").scrollIntoView();
 	return false;
@@ -57,6 +51,9 @@ function loadRecipeAttributes(rname) {
 			break;
 		}
 	}
-	RecipeTitle = therecipe.getAttribute("title");
-	RecipeSteps = therecipe.getElementsByTagName("Steps");
+	var toreturn = {};
+	toreturn["title"] = therecipe.getAttribute("title");
+	toreturn["steps"] = therecipe.getElementsByTagName("step");
+
+	return toreturn;
 }
