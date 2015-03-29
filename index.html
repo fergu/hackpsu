@@ -5,6 +5,7 @@
 <meta name="keywords" content="recipes, kitchen, cooking">	
 <meta charset="utf-8" name="The Kitchen Navigator" content="cooking assistant">
 <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="Jscripts/jquery.min.js"></script>
 <script src="Jscripts/recognizer.js"></script>
 <script src="Jscripts/slides.min.jquery.js"></script>
@@ -244,7 +245,7 @@ xmlhttp.send();
 			<div class="section">
 				<h3><a href="serv.html">Top Recipes</a></h3>	
 				<ul>
-					<li><a href onclick="top1func(); return false;" >Ramen Noodles</a></li>
+					<li><a href id="recipelink" mval="Ramen">Ramen Noodles</a></li>
          				<li><a href onclick="top2func(); return false;" >Hot Dogs</a></li>
          				<li><a href onclick="top3func(); return false;" >Cheese Omelletes</a></li>
          				<li><a href onclick="top4func(); return false;" >French Onion Soup</a></li>
@@ -364,5 +365,6 @@ xmlhttp.send();
 			<p>&copy Copyright 2015. All rights reserved</p>
 		</div>
 	</div>
+<script src="Jscripts/recipeparser.js"></script>
 </body>
 </html>
