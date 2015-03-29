@@ -32,8 +32,9 @@ if (!('webkitSpeechRecognition' in window)) {
 }
 
 function startListening() {
-	console.log(isListening);
+	console.log("Want to start listening");
 	if (isListening == true) {
+		console.log("Already listening. Ignoring.");
 		return;
 	}
 
@@ -45,6 +46,7 @@ function stopListening() {
 	console.log("Want to stop");	
 	console.log(isListening);
 	if (isListening == false) {
+		console.log("Already stopped. Ignoring.");
 		return;
 	}
 	isListening = false;
