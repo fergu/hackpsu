@@ -1,32 +1,32 @@
 <Recipes>
 	<Recipe title="Hot Dogs">
 		<Ingredient name="Hotdog" quantity="2"/>
-		<step number="1" posttime="0"/>
+		<step number="1" posttime="0">
 			<text>
 				Fill a pot with water and place the pot on the stove under high heat
 			</text>
 		</step>
-		<step number="2" posttime="0"/>
+		<step number="2" posttime="0">
 			<text>
 				Remove your hot dogs from the packaging.
 			</text>
 		</step>
-		<step number="3" posttime="0"/>
+		<step number="3" posttime="0">
 			<text>
 				Place the hot dogs into the water.
 			</text>
 		</step>
-		<step number="4" posttime="0"/>
+		<step number="4" posttime="0">
 			<text>
 				Wait for the water to come to a boil.
 			</text>
 		</step>
-		<step number="5" posttime="60"/>
+		<step number="5" posttime="60">
 			<text>
 				Once the water is boiling, wait 1 minute for the hot dogs to cook.
 			</text>
 		</step>
-		<step number="6" posttime="0"/>
+		<step number="6" posttime="0">
 			<text>
 				Carefully remove the hot dogs from the boiling water and place onto bread.
 			</text>
@@ -34,27 +34,27 @@
 	</Recipe>
 	<Recipe title="Ramen">
 		<Ingredient name="Ramen Packet" quantity="1"/>
-		<step number="1" posttime="0"/>
+		<step number="1" posttime="0">
 			<text>
 				Remove the ramen from the packaging. There will be a pack of noodles and a packet of seasoning.
 			</text>
 		</step>
-		<step number="2" posttime="0"/>
+		<step number="2" posttime="0">
 			<text>
 				Put water into a pot and place the pot on the stove on high heat.
 			</text>
 		</step>
-		<step number="3" posttime="300"/>
+		<step number="3" posttime="300">
 			<text>
 				Place the noodles into the water. Wait for the water to come to a boil, and continue cooking for 5 minutes.
 			</text>
 		</step>
-		<step number="4" posttime="0"/>
+		<step number="4" posttime="0">
 			<text>
 				After the noodles have cooked, add the seasoning packet to the water.
 			</text>
 		</step>	
-		<step number="5" posttime="0"/>
+		<step number="5" posttime="0">
 			<text>
 				Strain the water and noodles through a collander. Place the noodles into a bowl and enjoy.
 			</text>
