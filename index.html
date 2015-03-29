@@ -8,6 +8,127 @@
 <script src="Jscripts/jquery.min.js"></script>
 <script src="Jscripts/recognizer.js"></script>
 <script src="Jscripts/slides.min.jquery.js"></script>
+
+<script type="text/javascript">
+window.onload = function(){ 
+	//Get submit button
+	var submitbutton = document.getElementById("tfq");
+	//Add listener to submit button
+	if(submitbutton.addEventListener){
+		submitbutton.addEventListener("click", function() {
+			if (submitbutton.value == 'Lets cook'){//Customize this text string to whatever you want
+				submitbutton.value = '';
+			}
+		});
+	}
+}
+</script>
+<!-- CSS styles for standard search box with placeholder text-->
+<style type="text/css">
+	#tfheader{
+		background-color:white;
+	}
+	#tfnewsearch{
+		float:right;
+		padding:20px;
+	}
+	.tftextinput2{
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		color:#666;
+		border:1px solid #0076a3; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+	}
+	.tfbutton2 {
+		margin: 0;
+		padding: 5px 7px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		font-weight:bold;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #0076a3; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	.tfbutton2:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton2::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+</style>
+
+
+<script type="text/javascript">
+function searchfunc()
+{
+var z=document.getElementById("rname");
+var y=z.value;
+var xmlhttp;
+var txt,i,x;
+// document.getElementById("pdebug").innerHTML=y;
+if (window.XMLHttpRequest)
+{
+xmlhttp=new XMLHttpRequest();
+}
+else
+{
+ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+	xmlhttp.onreadystatechange=function()
+	{
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+
+			txt=xmlhttp.responseText;
+/*
+			xmlDoc=xmlhttp.responseXML;
+			txt="";
+			x=xmlDoc.getElementsByTagName("rating");
+			for (i=0;i<x.length;i++)
+			{
+			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+			}
+
+*/
+			
+/*		var i=txt.split("|");
+		document.getElementById("title").innerHTML=i[0];
+		document.getElementById("rating").innerHTML=i[1];
+		document.getElementById("rated").innerHTML=i[2];
+		document.getElementById("plot_simple").innerHTML=i[3];
+//			document.getElementById("actors").innerHTML=i;
+//			document.getElementById("directors").innerHTML=i;
+		document.getElementById("year").innerHTML=i[4];
+		var post=i[5];
+		document.getElementById("poster").src=post;
+		}
+*/
+	document.getElementById("footer").scrollIntoView();
+	}	
+
+xmlhttp.open("GET","recipes.xml",true);
+xmlhttp.send();
+}
+</script>
 <style type="text/css">
 .slides_container {
 
@@ -85,43 +206,43 @@
 		</div>
 		<div class="footer">
 			<div class="section">
-				<h3><a href="serv.html">Services Offered</a></h3>	
+				<h3><a href="serv.html">Top Recipes</a></h3>	
 				<ul>
-					<li><a href ="servicerc1.html" >Root Canal Treatment</a></li>
-         				<li><a href ="servicerd.html" >Regular Dental Checup</a></li>
-         				<li><a href ="servicetw.html" >Teeth Whitening</a></li>
-         				<li><a href ="servicebr.html" >Bridges</a></li>
-         				<li><a href ="servicetr.html" >Tooth Removal - pain-free</a></li>
-         				<li><a href ="serviceim.html" >Implants</a></li>
+					<li><a href ="topr1.html" >Ramen Noodles</a></li>
+         				<li><a href ="topr2.html" >Hot Dogs</a></li>
+         				<li><a href ="topr3.html" >Cheese Omelletes</a></li>
+         				<li><a href ="topr4.html" >French Onion Soup</a></li>
+         				<li><a href ="topr5.html" >Ready to eat meals</a></li>
+         				<!--li><a href ="serviceim.html" >Implants</a></li>
          				<li><a href ="servicesp.html" >Scaling and Polishing</a></li>
          				<li><a href ="servicedt.html" >Dentures - Partial/Full</a></li>
          				<li><a href ="servicevn.html" >Veneers</a></li>
          				<li><a href ="servicetc.html" >Tooth Colored Fillings</a></li>
          				<li><a href ="servicemc.html" >Metal-free Crowns</a></li>
          				<li><a href ="servicewr.html" >Wisdom Tooth Removal</a></li>
-         				<li><a href ="serviceor.html" >Wires and Braces</a></li>
+         				<li><a href ="serviceor.html" >Wires and Braces</a></li-->
 				</ul>	
 			</div>
 		<div class="featured">
 			<ul>
 				<li>
-					<h3>About Us</h3>	
-	
-					<p>A state of art Dental clinic with all the latest and necessary modern equipments. At perfect 32 Dental Care, we offer an extensive range of services using the latest technology available in the dental
+					<h3>Search Recipes</h3>	
+<!--div id="tfheader">
+		<form id="tfnewsearch" method="get" action="http://www.google.com">
+		        <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Search our website"><input type="submit" value=">" class="tfbutton2">
+		</form>
+		<div class="tfclear"></div>
+	</div-->
 
-industry today. it is our priority to create a warm comfortable and welcoming environment for our patients, and deliver
+<form name="searchbox" onsubmit="searchfunc(); return false;" autocomplete="on">
+        <input type="text" id="rname" size="50" style="background-color:white;"/>
+        <!-- input type="button" id="btnSearch" onclick="searchfunc();" src="./images/search_b.jpeg"/ -->
+        </form>
 
-treatment with knowledge and care. Our facility boasts :</p>		
-<p>
-&#45; Digital Imaging - precision and accuracy<br>
-&#45; Advanced RCT (Digitalized root canal therapy)<br>
-&#45; Replacement warranty over prosthesis up to 15 years<br>
-&#45; Intra oral camera - See for your self<br>
-&#45; AERB certified X-ray Machines<br>	
-</p>
+
 </li>				<li>
 					<h3>PATIENT SAFETY:</h3>
-					<p>We practice strict sterilization protocal as recommended under IDA guidelines. We autoclave (steam sterilize) our hand pieces (drill) and all other instruments. Those few items, which cannot be autoclaved are disposed off. all surfaces in the treatment room are cleaned and disinfected. We follow a four tier sterilization protocol</p><br>
+					<p id=resultz">We practice strict sterilization protocal as recommended under IDA guidelines. We autoclave (steam sterilize) our hand pieces (drill) and all other instruments. Those few items, which cannot be autoclaved are disposed off. all surfaces in the treatment room are cleaned and disinfected. We follow a four tier sterilization protocol</p><br>
 <p><img src="./images/t1.jpg"width="100" height="105" >All the instruments are scrubbed thoroughly with isopropyl alcohol swabs to remove any attached debris.</p><br>
 <br>
 <br>
