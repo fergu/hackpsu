@@ -20,12 +20,13 @@ width:1000px;
 <script type="text/javascript">
 function searchfunc()
 {
+
 var z=document.getElementById("rname");
 var y=z.value;
 var xmlhttp;
 var txt,i,x;
 // document.getElementById("pdebug").innerHTML=y;
-/*if (window.XMLHttpRequest)
+if (window.XMLHttpRequest)
 {
 xmlhttp=new XMLHttpRequest();
 }
@@ -38,11 +39,11 @@ else
 	{
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			x=xmlDoc.getElementsByTagName('y');
-			for (i=0;i<x.length;i++)
-  			{
-  			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
-  			}
+//			x=xmlDoc.getElementsByTagName('y');
+//			for (i=0;i<x.length;i++)
+//  			{
+//  			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+//  			}
 //			txt=xmlhttp.responseXML;
 //			var foundin = $(":contains(" + y + ")", txt);
 /*
@@ -66,24 +67,18 @@ else
 //		document.getElementById("year").innerHTML=i[4];
 //		var post=i[5];
 //		document.getElementById("poster").src=post;
+*/
+	document.getElementById("resultz").innerHTML=xmlhttp.responseText;
 		}
 
-	document.getElementById("resultz").scrollIntoView();
+//	document.getElementById("resultz").scrollIntoView();
+
 	}	
 
-xmlhttp.open("GET","recipes.xml",true);
+xmlhttp.open("GET","./recipes/recipes.xml",true);
 xmlhttp.send();
 }
-*/
 
-xmlDoc=loadXMLDoc("./recipes/recipes.xml");
-
-x=xmlDoc.getElementsByTagName('Recipes');
-for (i=0;i<x.length;i++)
-{
-document.write(x[i].getAttribute('title'));
-document.write("<br>");
-} 
 
 </script>
 <style type="text/css">
@@ -199,6 +194,7 @@ document.write("<br>");
 
 </li>				<li>
 					<h3>Results from our Database:</h3>
+					<p id="resultz">try</p>
 					<!--p>We practice strict sterilization protocal as recommended under IDA guidelines. We autoclave (steam sterilize) our hand pieces (drill) and all other instruments. Those few items, which cannot be autoclaved are disposed off. all surfaces in the treatment room are cleaned and disinfected. We follow a four tier sterilization protocol</p><br>
 <p><img src="./images/t1.jpg"width="100" height="105" >All the instruments are scrubbed thoroughly with isopropyl alcohol swabs to remove any attached debris.</p><br>
 <br>
@@ -208,7 +204,7 @@ document.write("<br>");
 <br>
 <p><img src="./images/t3.jpg"width="100" height="105" >Dried instruments are then packed in sterilization pouches (eco friendly reusable and not plastic) and sterilized using an Autoclave. This is a high pressured steam chamber where instruments are placed at a specified temperature to kill all the micro organisms including their spores.</p><br>
 <p><img src="./images/t4.jpg"width="100" height="105" >Antiseptic dip: After use the instruments from each patient are saturated solution of an antiseptic for at least 12 hours.</p><br-->
-				<div id="resultz"  style="width:1000px;" class="center">
+				<div id="results"  style="width:1000px;" class="center">
 		<!-- div id="m_poster" style="float:left"-->
 		<table style="padding:20px">
 		<tbody>
@@ -257,7 +253,7 @@ document.write("<br>");
 	<div id="footer">
 		<div>
 			<div>
-				<h3>Netaji Nagar</h3>
+				<h3></h3>
 				<ul>
 					<li>+91-9711928585 mobile</li>				
 					<li>011-26118002 clinic</li>
@@ -270,17 +266,17 @@ document.write("<br>");
 				</ul>			
 			</div>	
                         <div>
-                                <ul>
+                                <!--ul>
                                         <li>Click <a href="Perfect32_Brochure.pdf"><span>here</span></a> to Download our Brochure</li>
-                                </ul>
+                                </ul-->
                         </div>
 			<div>
 				<h3>follow us on facebook:</h3>
-				<a class="facebook" href="https://www.facebook.com/perfect32dentalcarenetajinagar" target="_blank">facebook</a>		
+				<a class="facebook" href="https://www.facebook.com/" target="_blank">facebook</a>		
 			</div>	
 		</div>
 		<div>
-			<p>&copy Copyright 2014. All rights reserved</p>
+			<p>&copy Copyright 2015. All rights reserved</p>
 		</div>
 	</div>
 </body>
