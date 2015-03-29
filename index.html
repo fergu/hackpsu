@@ -25,7 +25,7 @@ var y=z.value;
 var xmlhttp;
 var txt,i,x;
 // document.getElementById("pdebug").innerHTML=y;
-if (window.XMLHttpRequest)
+/*if (window.XMLHttpRequest)
 {
 xmlhttp=new XMLHttpRequest();
 }
@@ -38,8 +38,13 @@ else
 	{
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-
-			txt=xmlhttp.responseText;
+			x=xmlDoc.getElementsByTagName('y');
+			for (i=0;i<x.length;i++)
+  			{
+  			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+  			}
+//			txt=xmlhttp.responseXML;
+//			var foundin = $(":contains(" + y + ")", txt);
 /*
 			xmlDoc=xmlhttp.responseXML;
 			txt="";
@@ -51,7 +56,7 @@ else
 
 */
 			
-//		var i=txt.split("|");
+/*		var i=txt.split("|");
 		document.getElementById("title").innerHTML=i[0];
 		document.getElementById("steps").innerHTML=i[1];
 		document.getElementById("time").innerHTML=i[2];
@@ -69,6 +74,17 @@ else
 xmlhttp.open("GET","recipes.xml",true);
 xmlhttp.send();
 }
+*/
+
+xmlDoc=loadXMLDoc("./recipes/recipes.xml");
+
+x=xmlDoc.getElementsByTagName('Recipes');
+for (i=0;i<x.length;i++)
+{
+document.write(x[i].getAttribute('title'));
+document.write("<br>");
+} 
+
 </script>
 <style type="text/css">
 .slides_container {
@@ -109,7 +125,7 @@ xmlhttp.send();
 <body>
 	<div id="header">
 			<div id="logo" style="position:relative;">
-				<a href="index.html"><img class="bottom"src="images/cook.png"  style="position:absolute; bottom:0; "height="200px" width="333px"alt="" /></a>			
+				<a href="index.html"><img class="bottom"src="images/cook.png"  style="position:absolute; bottom:0; "height="190px" width="333px"alt="" /></a>			
 			</div>	
                         <!--div id="logo1" style="position:relative;">
                                 <a href="contact.html"><img src="images/new_logo.jpg"  style="position:absolute; bottom:0;" height="100px" width="350px"alt="" /></a>                        
