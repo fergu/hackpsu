@@ -9,9 +9,11 @@ if (!('webkitSpeechRecognition' in window)) {
 	recognizer.interimResults = false;
 
 	recognizer.onstart = function() {
+		document.getElementById("listenstatus").innerHTML = "<i>Listening...</i>";
 	};
 
 	recognizer.onend = function() {
+		document.getElementById("listenstatus").innerHTML = "<i>Speech Recognizer Stopped.</i>";
 	};
 
 	recognizer.onresult = function(event) {
@@ -19,16 +21,50 @@ if (!('webkitSpeechRecognition' in window)) {
 		for (var i = event.resultIndex; i < event.results.length; ++i) {
 			if (event.results[i].isFinal) {
 				console.log(event.results[i][0].transcript);
+				document.getElementById("listenstatus").innerHTML = "<i>Listening...</i>";
 				if (event.results[i][0].transcript.toLowerCase().indexOf("next step") > -1) {
 					gotDone();
+				} else if (event.results[i][0].transcript.toLowerCase().indexOf("last step") > -1) {
+					goToLastStep();
+				} else if (event.results[i][0].transcript.toLowerCase().indexOf("say again") > -1) {
+					repeatStep();
+				} else if (event.results[i][0].transcript.toLowerCase().indexOf("stop reading") > -1) {
+					speakText("Stopping voice interaction");
+					stopListening();
+				} else if (event.results[i][0].transcript.toLowerCase().indexOf("say ingredients") > -1) {
+					sayIngredients();
+				} else {
+					document.getElementById("listenstatus").innerHTML = "<i>Didn't hear a command.<br>Try Again</i>";
 				}
+
 			}
 		}	
 	};
 
+	recognizer.onspeechend = function () {
+		document.getElementById("listenstatus").innerHTML = "<i>Processing...</i>";
+	}
+
+	recognizer.onspeechstart = function() {
+		document.getElementById("listenstatus").innerHTML = "<i>Listening...</i>";
+	}
+
 	recognizer.onerror = function(event) {
+		document.getElementById("listenstatus").innerHTML = "<i>Error...</i>";
  	}
 
+}
+
+function sayIngredients() {
+	var ingr = "Your ingredients are ";
+
+	for (i=0; i<ings.length;i++) {
+		ingr = ingr.concat(ings[i].getAttribute("quantity"), ings[i].getAttribute("name"));
+		if (i+1 < ings.length) {
+			ingr = ingr.concat(", and ");
+		}
+	}
+	speakText(ingr);
 }
 
 function startListening() {
@@ -65,9 +101,20 @@ function gotDone() {
 	currentStep++;
 	if (currentStep == CurrentRecipe.steps.length) {
 		stopListening();
-		speakText("Recipe Finished");
+		speakText("Recipe Finished. Goodbye.");
 		return;
 	}
+	readyToRead();
+}
+
+function repeatStep() {
+	console.log("Repeating this step");
+	readyToRead();
+}
+
+function goToLastStep() {
+	console.log("Going to previous step");
+	currentStep--;
 	readyToRead();
 }
 

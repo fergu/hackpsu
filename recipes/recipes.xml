@@ -1,6 +1,7 @@
 <Recipes>
 	<Recipe title="Hot Dogs">
 		<Ingredient name="Hotdog" quantity="2"/>
+		<Ingredient name="Bread Slices" quantity="2"/>
 		<step number="1" posttime="0">Fill a pot with water and place the pot on the stove under high heat</step>
 		<step number="2" posttime="0">Remove your hot dogs from the packaging.</step>
 		<step number="3" posttime="0">Place the hot dogs into the water.</step>
