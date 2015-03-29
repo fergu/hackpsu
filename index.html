@@ -16,7 +16,83 @@ margin:auto;
 width:1000px;
 }
 </style>
+<script type="text/javascript">
+function top1func()
+{
+var titl = "Ramen";
+var steps = "<ul><li>Step One : Bring two cups of water to a boil</li><li>Step Two : Put the Ramen in the boiling water</li></ul>";
+var ttt = "Total time : 10 minutes";
+document.getElementById("Recipename").innerHTML = titl;
+document.getElementById("steps").innerHTML = steps;
+document.getElementById("time").innerHTML = ttt;
+document.getElementById("results").scrollIntoView();
+//var btn = document.getElementById("buttons").createElement("BUTTON");
+//var t = document.getElementById("buttons").createTextNode("Start Voice Functions");
+//btn.appendChild(t);
+//document.getElementById("buttons").appendChild(btn);
+}
 
+function top2func()
+{
+var titl = "Hot Dogs";
+var steps = "<ul><li>Step One : Bring two cups of water to a boil</li><li>Step Two : Put the Ramen in the boiling water</li></ul>";
+var ttt = "Total time : 10 minutes";
+document.getElementById("Recipename").innerHTML = titl;
+document.getElementById("steps").innerHTML = steps;
+document.getElementById("time").innerHTML = ttt;
+document.getElementById("results").scrollIntoView();
+//var btn = document.getElementById("buttons").createElement("BUTTON");
+//var t = document.getElementById("buttons").createTextNode("Start Voice Functions");
+//btn.appendChild(t);
+//document.getElementById("buttons").appendChild(btn);
+}
+
+function top3func()
+{
+var titl = "Cheese Omelettes";
+var steps = "<ul><li>Step One : Bring two cups of water to a boil</li><li>Step Two : Put the Ramen in the boiling water</li></ul>";
+var ttt = "Total time : 10 minutes";
+document.getElementById("Recipename").innerHTML = titl;
+document.getElementById("steps").innerHTML = steps;
+document.getElementById("time").innerHTML = ttt;
+document.getElementById("results").scrollIntoView();
+//var btn = document.getElementById("buttons").createElement("BUTTON");
+//var t = document.getElementById("buttons").createTextNode("Start Voice Functions");
+//btn.appendChild(t);
+//document.getElementById("buttons").appendChild(btn);
+}
+
+function top4func()
+{
+var titl = "French Onion Soup";
+var steps = "<ul><li>Step One : Bring two cups of water to a boil</li><li>Step Two : Put the Ramen in the boiling water</li></ul>";
+var ttt = "Total time : 10 minutes";
+document.getElementById("Recipename").innerHTML = titl;
+document.getElementById("steps").innerHTML = steps;
+document.getElementById("time").innerHTML = ttt;
+document.getElementById("results").scrollIntoView();
+//var btn = document.getElementById("buttons").createElement("BUTTON");
+//var t = document.getElementById("buttons").createTextNode("Start Voice Functions");
+//btn.appendChild(t);
+//document.getElementById("buttons").appendChild(btn);
+}
+
+function top5func()
+{
+var titl = "Ready to Eat Meals";
+var steps = "<ul><li>Step One : Bring two cups of water to a boil</li><li>Step Two : Put the Ramen in the boiling water</li></ul>";
+var ttt = "Total time : 10 minutes";
+document.getElementById("Recipename").innerHTML = titl;
+document.getElementById("steps").innerHTML = steps;
+document.getElementById("time").innerHTML = ttt;
+document.getElementById("results").scrollIntoView();
+//var btn = document.getElementById("buttons").createElement("BUTTON");
+//var t = document.getElementById("buttons").createTextNode("Start Voice Functions");
+//btn.appendChild(t);
+//document.getElementById("buttons").appendChild(btn);
+}
+
+</script>
 <script type="text/javascript">
 function searchfunc()
 {
@@ -44,18 +120,18 @@ else
 //  			{
 //  			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
 //  			}
-//			txt=xmlhttp.responseXML;
+//			xmlDoc=xmlhttp.responseXML;
 //			var foundin = $(":contains(" + y + ")", txt);
-/*
-			xmlDoc=xmlhttp.responseXML;
-			txt="";
-			x=xmlDoc.getElementsByTagName("rating");
-			for (i=0;i<x.length;i++)
-			{
-			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
-			}
 
-*/
+//			xmlDoc=xmlhttp.responseXML;
+//			txt="";
+//			x=xmlDoc.getElementsByTagName("rating");
+//			for (i=0;i<x.length;i++)
+//			{
+//			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+//			}
+
+
 			
 /*		var i=txt.split("|");
 		document.getElementById("title").innerHTML=i[0];
@@ -68,7 +144,15 @@ else
 //		var post=i[5];
 //		document.getElementById("poster").src=post;
 */
-	document.getElementById("resultz").innerHTML=xmlhttp.responseText;
+	x=xmlhttp.responseXML.getElementsByTagName("Recipe")[0];
+	y=x.childNodes[0];
+//                      for (i=0;i<x.length;i++)
+//                      {
+//                      txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+//                      }
+	txt=y.nodeValue + "<br>";
+	document.getElementById("resultz").innerHTML=txt;
+//	document.getElementById("resultz").innerHTML=xmlhttp.responseXML.getElementsByTagName("Recipe")[0];
 		}
 
 //	document.getElementById("resultz").scrollIntoView();
@@ -160,11 +244,11 @@ xmlhttp.send();
 			<div class="section">
 				<h3><a href="serv.html">Top Recipes</a></h3>	
 				<ul>
-					<li><a href ="topr1.html" >Ramen Noodles</a></li>
-         				<li><a href ="topr2.html" >Hot Dogs</a></li>
-         				<li><a href ="topr3.html" >Cheese Omelletes</a></li>
-         				<li><a href ="topr4.html" >French Onion Soup</a></li>
-         				<li><a href ="topr5.html" >Ready to eat meals</a></li>
+					<li><a href onclick="top1func(); return false;" >Ramen Noodles</a></li>
+         				<li><a href onclick="top2func(); return false;" >Hot Dogs</a></li>
+         				<li><a href onclick="top3func(); return false;" >Cheese Omelletes</a></li>
+         				<li><a href onclick="top4func(); return false;" >French Onion Soup</a></li>
+         				<li><a href onclick="top5func(); return false;" >Ready to eat meals</a></li>
          				<!--li><a href ="serviceim.html" >Implants</a></li>
          				<li><a href ="servicesp.html" >Scaling and Polishing</a></li>
          				<li><a href ="servicedt.html" >Dentures - Partial/Full</a></li>
@@ -194,7 +278,7 @@ xmlhttp.send();
 
 </li>				<li>
 					<h3>Results from our Database:</h3>
-					<p id="resultz">try</p>
+					<p id="resultz"></p>
 					<!--p>We practice strict sterilization protocal as recommended under IDA guidelines. We autoclave (steam sterilize) our hand pieces (drill) and all other instruments. Those few items, which cannot be autoclaved are disposed off. all surfaces in the treatment room are cleaned and disinfected. We follow a four tier sterilization protocol</p><br>
 <p><img src="./images/t1.jpg"width="100" height="105" >All the instruments are scrubbed thoroughly with isopropyl alcohol swabs to remove any attached debris.</p><br>
 <br>
@@ -206,29 +290,30 @@ xmlhttp.send();
 <p><img src="./images/t4.jpg"width="100" height="105" >Antiseptic dip: After use the instruments from each patient are saturated solution of an antiseptic for at least 12 hours.</p><br-->
 				<div id="results"  style="width:1000px;" class="center">
 		<!-- div id="m_poster" style="float:left"-->
-		<table style="padding:20px">
+		<table style="padding:10px">
 		<tbody>
 		<tr>
-		<td width="300">
-		<p id="title"></p>
+		<td width="300px">
+		<p id="Recipename"></p>
 		</td>
 
-		<td width="300">
-		<p id="test"></p>
+		<td width="340px">
+		<p id="steps"></p>
 		<p id="time"></p>
+		<p id="buttons"></p>
 		</td>
 		</tr>
 		</tbody>
 		</table>
 </div>
 				</li>
-				<li>
+				<!--li>
 					<h3>For Free Advice:</h3>
 					<p>Write a message on the testimonials page with your queries</p>
-				</li>
+				</li-->
 			</ul>		
 		</div>
-		<div class="section">
+		<!--div class="section">
 			<h3>Testimonials</h3>	
 			<ul class="news">
 				<li>
@@ -249,9 +334,9 @@ xmlhttp.send();
 			</ul>	
 		</div>
 		</div>
-	</div>
+	</div-->
 	<div id="footer">
-		<div>
+		<!--div>
 			<div>
 				<h3></h3>
 				<ul>
@@ -266,10 +351,10 @@ xmlhttp.send();
 				</ul>			
 			</div>	
                         <div>
-                                <!--ul>
+                                <ul>
                                         <li>Click <a href="Perfect32_Brochure.pdf"><span>here</span></a> to Download our Brochure</li>
-                                </ul-->
-                        </div>
+                                </ul>
+                        </div-->
 			<div>
 				<h3>follow us on facebook:</h3>
 				<a class="facebook" href="https://www.facebook.com/" target="_blank">facebook</a>		
